@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    width:100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.mainDiv {
+    max-width: 414px;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 1;
+}
+.mainDiv .main {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    overflow: hidden;
+    z-index: 1;
+}
+.mainDiv .input1 {
+    font-family: 'IM_Hyemin-Bold';
+    position: absolute;
+    display: inline-block;
+    top: 45vh;
+    left: 50vw;
+    width: 110px;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    color: #b370e7;
+    border: 2px solid #b370e7;
+    z-index: 100;
+}
+.mainDiv .s1 {
+    font-family: 'IM_Hyemin-Bold';
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 45vh;
+    left: 57vw;
+    width: 30px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-left: 10px;
+    color: #b370e7;
+    z-index: 100;
+
+}
+.mainDiv .input2 {
+    font-family: 'IM_Hyemin-Bold';
+    position: fixed;
+    display: inline-block;
+    top: 52vh;
+    left: 46vw;
+    width: 180px;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding-left: 10px;
+    color: #b370e7;
+    border: 2px solid #b370e7;
+    z-index: 100;
+}
+
+.mainDiv .s2 {
+    font-family: 'IM_Hyemin-Bold';
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 53vh;
+    left: 57vw;
+    width: 60px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-left: 10px;
+    color: #b370e7;
+    z-index: 100;
+
+}
+.mainDiv .s3 {
+    font-family: 'IM_Hyemin-Bold';
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 63vh;
+    left: 46vw;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    height: 40px;
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    z-index: 100;
+}
+.mainDiv .present {
+    position: absolute;
+    top: 70vh;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 200px;
+    object-fit: cover;
+    z-index: 100;
+    animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .mainDiv .present {
+        width: 200px;
+        object-fit: cover;
+        z-index: 100;
+        animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
+        position: absolute;
+        top: 70vh;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    .mainDiv .input1 {
+        left: 49vw;
+        width: 100px;
+    }
+    .mainDiv .input2 {
+        width: 200px;
+        left: 7vh;
+    }  
+    .mainDiv .s1 {
+        top: 45vh;
+        left: 79vw;
+    }
+    .mainDiv .s2 {
+        top: 53vh;
+        left: 71vw;
+    }
+    .mainDiv .s3 {
+        top: 60vh;
+        left: 35vw;
+    }
+}
+
+@keyframes motion {
+    from {margin-top: 0px;}
+    to {margin-top: 10px;}
+}

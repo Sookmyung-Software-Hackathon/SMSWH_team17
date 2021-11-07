@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulation:콩츄!</title>
+    <link rel="stylesheet" href="main.css">
+    <meta property="og:url" content="./img/celebrate2.png">
+    <meta property="og:title" content="[콩츄] 다음 주자는 당신, 축하하러 오세요!">
+    <meta property="og:description" content="피할 수 없다면 즐겨라! 콩츄와 함께 더 즐거운 하루를 만들어요:)">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="mainDiv">
+        <img class="main" src="./img/가완성1.png" alt="">
+        <input id="name" class="input1" type="text" placeholder="이름"><span class="s1">야!</span>
+        <input id="category" class="input2" type="text" placeholder="ex) 생일, 퇴사, 맛있는 아침식사"><span class="s2">축하해!</span>
+        <span class="s3">선물을 눌러보세요!</span>
+        <img class="present" id="present" src="./img/선물.png" alt="">
+    </div>
+
+    <!-- 입력받은 이름을 자바스크립트 변수에 저장해놓고 다음 페이지에서 써먹기 -->
+    <!-- 백에 넘기기 -->
+    <!-- post 방식으로 넘기면댐 -->
+    <script>
+        $('#present').on('click',function () {
+            addLetter();
+        })
+        
+        function addLetter() {
+            let name = $('#name').val();
+            let category = $('#category').val();
+
+            if (name == '') {
+                alert("이름을 입력해주세요.");
+                $('#name').focus();
+            }
+            else if (category == '') {
+                alert("축하 이유를 입력해주세요.");
+                $('#category').focus();
+            }
+            else {    
+                var letterDto = {
+                "name" : name,
+                "category" : category
+                }
+            }
+        
+            $.ajax({
+                type: 'POST',
+                url: `http://3.34.141.17:8080/letters`,
+                data: JSON.stringify(letterDto),
+                contentType: "application/json",
+                success: function (response) {
+                    let id = response.id;
+                    location.href ="celebrity.html?id=" + id;
+                    console.log('성공!')
+                }
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+
+@font-face {
+    font-family: 'Bohyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Bohyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    width:100%;
+    margin: 0;
+    padding: 0;
+}
+.conDiv {
+    width: 414px;
+    height: 130vh;
+    margin: 0 auto;
+    z-index: 1;
+}
+.conDiv .conMain {
+    width: 100%;
+    height: 100vh;
+    object-fit:cover;
+    z-index: 1;
+}
+.conDiv .letter {
+    position: absolute;
+    font-family: 'Bohyun';
+    display:inline-block;
+    width: 355px;
+    z-index: 100;
+    font-size: 30px;
+    text-align: center;
+    line-height: 43px;
+    top: 36vh;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.conDiv iframe {
+    position: absolute;
+    z-index: 100;
+    width: 400px;
+    height: 35vh;
+    margin: 0 auto;
+    top: 70vh;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.conDiv .azip {
+    position: absolute;
+    margin-top: 20px;
+    top: 100vh;
+    height: 60px;
+    padding: 10px;
+    left: 39%;
+    transform: translate(-39%, 0%);
+    margin-bottom: 50px;
+}
+.conDiv .azip .rollingpaper {
+    font-family: 'Bohyun';
+    position: absolute;
+    left: 10px;
+    width: 150px;
+    font-size: 25px;
+    height: 50px;
+    background-color: black;
+    margin: 15px;
+    margin-top:40px;
+    border-radius: 25px;
+    z-index: 100;   
+    color: #fff;
+}
+.conDiv .azip .fortune{
+    font-family: 'Bohyun';
+    font-size: 25px;
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    margin-top: 40px;
+    border-radius: 25px;
+    z-index: 100;   
+    color: #fff;
+    left: 195px;
+}
+
+@media screen and (max-width: 768px) {
+    .conDiv {
+        width: 100%;
+        height: 130vh;
+        margin: 0 auto;
+        z-index: 1;
+    }
+    .conDiv .conMain {
+        width: 100%;
+        height: 100vh;
+        object-fit: fill;
+        z-index: 1;
+    }
+
+    .conDiv .letter {
+        position: absolute;
+        font-family: 'Bohyun';
+        display:inline-block;
+        width: 355px;
+        z-index: 100;
+        font-size: 34px;
+        text-align: center;
+        line-height: 40px;
+        top: 38vh;
+        margin-left: 13px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    .conDiv iframe {
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        height: 30vh;
+        top: 75vh;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    .conDiv .azip {
+        position: absolute;
+        margin-top: 20px;
+        top: 50vh;
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        margin-bottom: 20px;
+    }
+    .conDiv .azip .rollingpaper {
+        font-family: 'Bohyun';
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        margin: 0px;
+        width: 80%;
+        font-size: 25px;
+        height: 50px;
+        background-color: black;
+        margin-top:40px;
+        margin-bottom: 10px;
+        border-radius: 25px;
+        z-index: 100;   
+        color: #fff;
+        top: 54vh;
+    }
+    .conDiv .azip .fortune{
+        font-family: 'Bohyun';
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        margin: 0px;
+        width: 80%;
+        font-size: 25px;
+        height: 50px;
+        background-color: black;
+        margin-top:40px;
+        border-radius: 25px;
+        z-index: 100;   
+        color: #fff;
+        top: 62vh;
+    }
+    
+}

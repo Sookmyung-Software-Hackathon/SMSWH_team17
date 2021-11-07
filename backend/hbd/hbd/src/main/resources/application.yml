@@ -1,0 +1,12 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://conchu-database.cwbqtrhblpqd.ap-northeast-2.rds.amazonaws.com/conchu
+    username: root
+    password: chucon1234
+
+
+  jpa:
+    hibernate:
+      ddl-auto : update

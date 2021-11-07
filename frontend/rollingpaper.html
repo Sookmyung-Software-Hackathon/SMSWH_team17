@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Congratulation:콩츄!</title>
+    <link rel="stylesheet" href="rollingpaper.css">
+    <link rel="stylesheet" href="icon.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <meta property="og:url" content="./img/rollingpaper.png">
+    <meta property="og:title" content="[콩츄] 프라이빗 롤링 페이퍼 도착">
+    <meta property="og:description" content="다들 한 마디씩 적고 가셔요!">
+
+</head>
+<body>
+    <div class="rolDiv">
+        <img class="rpMain" src="./img/rollingpaper.png" alt="">
+        <ion-icon onclick="history.back()" class="back" name="arrow-back-circle"></ion-icon>
+        <ion-icon class="home" onclick="location.href='main.html'" name="home"></ion-icon>
+        <ion-icon class="url copy-btn" name="arrow-redo"></ion-icon>
+        <div id="rpowner" class="rpOwner"></div>
+        <div class="ownerDiv rolDivMsg" id="rpdiv"></div>
+        <!-- <div id="rpdiv" class="rolDivMsg"></div> -->
+        <input id="rpmsg" class="rpMsg" width="200" type="text" placeholder="마음을 전하는 한 문장을 작성해주세요!" />
+        <button id="sbmbtn" class="smbtn">제출</button>
+    </div>
+
+    <script type="module">
+        import jquery from 'https://cdn.skypack.dev/jquery';
+        var id;
+        $(document).ready(function() {
+            var params = new URLSearchParams(location.search);
+            id = params.get('id');
+            console.log(id);
+
+            $.ajax({
+                type: 'GET',
+                url: `http://3.34.141.17:8080/letters/${id}`,
+                data: {},
+                success: function (response) {
+                    let name = response.data.name;
+                    
+                    console.log(name);
+                    
+                    $('#rpowner').append(`To. ${name}`);
+                }
+            })
+
+            reload();
+        })
+
+        $('#sbmbtn').on('click',function () {
+            addRollingPaper();
+        })
+
+        
+
+        
+        function addRollingPaper() {
+            let msg = $('#rpmsg').val();
+
+            if (msg == '') {
+                alert("메세지를 입력해주세요.");
+                $('#rpmsg').focus();
+            }
+            else {    
+                var commentDto = {
+                    // 수정필요
+                    "letterId" : id,
+                    "content" : msg
+                }
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: `http://3.34.141.17:8080/comments`,
+                data: JSON.stringify(commentDto),
+                contentType: "application/json",
+                success: function (response) {
+                    console.log('성공!')
+                    rpmsg.value = "";
+                    reload();
+                }
+            })
+        }
+
+       
+
+
+        function reload() {
+            $('#rpdiv').empty();
+            $.ajax({
+                //롤페db에서 받아와서
+                //for문으로 무작위 붙이기
+                type: 'GET',
+                url: `http://3.34.141.17:8080/comments/${id}`,
+                data: {},
+                success: function (response) {
+                    for (let i=0; i<response.data.length; i++) {
+                        let commentDto = response.data[i];
+                        let tempHtml = addHTML(commentDto.content);
+                    
+                        $('#rpdiv').append(tempHtml);
+                    }
+                }
+            })
+        }
+
+        function addHTML(content) {
+            return `<div class="rolling-paper">
+                <span>${content}</span><br/>
+                </div>`
+        }
+
+        function copyClip(url){
+            var $temp = $('<input>');
+            $('body').append($temp);
+            $temp.val(url).select();
+            document.execCommand('copy');
+            $temp.remove();
+            alert('URL이 복사되었습니다.');
+        }
+        
+        $('.copy-btn').on('click', function(e){
+            e.preventDefault();
+            var link = location.href;
+            copyClip(link);
+        });
+
+    </script>
+</body>
+</html>
