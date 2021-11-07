@@ -1,5 +1,7 @@
 # 🎉 콩츄(conchu!)
 
+![img_logo](https://github.com/Sookmyung-Software-Hackathon/SMSWH_team17/blob/main/img/img_logo.png)
+
 ## 팀명 <축하사절단👥> 
 - 구성원: 김예진(1916645), 장현애(1916279), 정제인(1910419)
 - 산출물 주소: [콩츄!: 비밀스러운 축하 메세지 도착](http://conchufront.s3-website.ap-northeast-2.amazonaws.com/)
